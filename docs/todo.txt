@@ -1,0 +1,7 @@
+- AWS EC2 with docker
+
+- Docker setup for Rails 6.
+- Check deploying via docker
+
+
+- Hosting and App Setup. Shopify callbacks. Tasks for pulling orders. Admin Area with Orders
