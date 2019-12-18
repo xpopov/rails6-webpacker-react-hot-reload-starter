@@ -92,6 +92,9 @@ GEM
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
     erubi (1.9.0)
+    exception_notification (4.4.0)
+      actionmailer (>= 4.0, < 7)
+      activesupport (>= 4.0, < 7)
     execjs (2.7.0)
     factory_bot (5.1.1)
       activesupport (>= 4.2.0)
@@ -255,6 +258,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   dotenv-rails (~> 2.7)
+  exception_notification (~> 4.4)
   factory_bot_rails (~> 5.1)
   faker (~> 2.9)
   jbuilder (~> 2.5)
