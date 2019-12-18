@@ -42,6 +42,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem "dotenv-rails", "~> 2.7"
 gem "exception_notification", "~> 4.4"
+gem "acts_as_paranoid", "~> 0.6.2"
+gem "audited", "~> 4.9"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
