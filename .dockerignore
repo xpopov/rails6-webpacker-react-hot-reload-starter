@@ -1,0 +1,11 @@
+.git
+node_modules
+tmp
+log
+public/assets
+public/packs
+docker
+yarn.lock
+yarn-error.log
+.byebug_history
+package-lock.json

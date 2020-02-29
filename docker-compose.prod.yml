@@ -1,0 +1,62 @@
+version: "3.4"
+
+services:
+  db:
+    image: "postgres:12.1"
+    env_file: ./docker/.env.production
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  redis:
+    image: "redis:5.0.7"
+    ports:
+      - "6379:6379"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    # add persistance, or else it could loose jobs queue
+    volumes:
+      - redis-data:/bitnami/redis/data      
+
+  app:
+    build:
+      context: ./
+      dockerfile: ./docker/Dockerfile
+    env_file: ./docker/.env.production
+    volumes:
+      - public-data:/usr/src/app/public
+      # - src-volume:/usr/src/app
+      # - jid-node_modules:/usr/src/app/node_modules
+      # - jid-tmp:/usr/src/app/tmp
+      # - type: bind
+      #   source: .
+      #   target: /usr/src/app
+        # name: app-sources
+    ports:
+      - "3000:3000"
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - db
+      - redis
+
+volumes:
+  public-data:
+    external: true
+  db-data:
+    external: true
+  redis-data:
+    external: true  
+    # jid-node_modules:
+    # external: true
+  # jid-tmp:
+    # external: true
+  src-volume:
+  # - type: bind
+    # source: .
+    # target: /usr/src/app
+    driver: local
+    driver_opts:
+      type: none
+      device: $PWD/..
+      o: bind
+      
