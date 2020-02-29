@@ -21,6 +21,10 @@ class Order < ApplicationRecord
   validates :total_line_items_price, presence: true#, numericality: { greater_than: 0 }
   validates :total_price, presence: true#, numericality: { greater_than: 0 }
 
+  scope :processing, -> { self }
+  scope :api_error, -> { self }
+  scope :shipped, -> { self }
+  scope :cancelled, -> { self }
   scope :refunded, -> {where(financial_status:'refunded')}
   scope :paid, -> {where(financial_status:'paid')}
   scope :authorized, -> {where(financial_status:'authorized')}

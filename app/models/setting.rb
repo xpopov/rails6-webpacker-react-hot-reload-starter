@@ -12,6 +12,6 @@ class Setting < ApplicationRecord
 
   def self.get_payload
     # byebug
-    Setting.all.map{ |s| { s.name => s.value } }.reduce(:merge).with_indifferent_access || {  }
+    Setting.all.map{ |s| { s.name => s.value } }.reduce(:merge).try(:with_indifferent_access) || {  }
   end
 end
