@@ -7,8 +7,10 @@ ruby '2.6.3'
 gem 'rails', '~> 6.0.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+gem 'pg', '~> 1.1'
+gem 'graphql', '~> 1.9'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -19,8 +21,8 @@ gem 'webpacker'
 # gem 'mini_racer', platforms: :ruby
 
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
-gem "slim-rails", "~> 3.2"
+gem 'coffee-rails', '~> 5.0.0'
+gem 'slim-rails', '~> 3.2'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
@@ -40,26 +42,37 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem "dotenv-rails", "~> 2.7"
-gem "exception_notification", "~> 4.4"
-gem "acts_as_paranoid", "~> 0.6.2"
-gem "audited", "~> 4.9"
+gem 'sidekiq', '~> 6.0'
+gem "httparty", "~> 0.17.3"
 
-group :development, :test do
+# Shopify App
+gem 'shopify_app', '~> 11.4'
+
+gem 'dotenv-rails', '~> 2.7'
+gem 'exception_notification', '~> 4.4'
+gem 'acts_as_paranoid', '~> 0.6.2'
+gem 'audited', '~> 4.9'
+
+gem 'city-state', github: 'loureirorg/city-state'
+gem 'country_state_select', '~> 3.0'
+
+group :staging, :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem "rspec-rails", "~> 3.9"
-  gem "factory_bot_rails", "~> 5.1"
-  gem "faker", "~> 2.9"
+  gem 'rspec-rails', '~> 3.9'
+  gem 'factory_bot_rails', '~> 5.1'
+  gem 'faker', '~> 2.9'
 end
 
-group :development do
+group :staging, :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # Mounts the GraphiQL IDE in Ruby on Rails.
+  gem 'graphiql-rails', '~> 1.7'
 end
 
 group :test do
@@ -67,7 +80,9 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  # gem 'chromedriver-helper'
+  gem 'webdrivers', '~> 3.0' #instead of chromedriver
+  gem 'database_cleaner', '~> 1.7.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

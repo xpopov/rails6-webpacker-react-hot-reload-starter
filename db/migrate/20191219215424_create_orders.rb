@@ -31,7 +31,6 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.datetime :deleted_at
       t.text :note_attributes
       t.string :tags
-      t.integer :colorcentric_order_id, index: true
 
       t.timestamps
     end
