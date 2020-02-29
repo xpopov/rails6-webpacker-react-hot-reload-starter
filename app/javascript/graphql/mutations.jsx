@@ -26,3 +26,43 @@ export const updateSettings = gql`
     }
   }
 `;
+
+export const createClient = gql`
+  mutation($firstName: String!, $lastName: String!) {
+    createClient(input: {
+      firstName: $firstName, 
+      lastName: $lastName,
+    }) {
+      client {
+        id
+      }
+    }
+  }
+`;
+
+export const updateClient = gql`
+  mutation($id: ID!, $firstName: String!, $lastName: String!) {
+    updateClient(input: {
+      id: $id, 
+      firstName: $firstName, 
+      lastName: $lastName,
+    })
+    {
+      errors {
+        path
+        message
+      }
+    }
+  }
+`;
+
+export const deleteClient = gql`
+  mutation($id: ID!) {
+    deleteClient(input: {
+      id: $id
+    })
+    {
+      deletedId
+    }
+  }
+`;

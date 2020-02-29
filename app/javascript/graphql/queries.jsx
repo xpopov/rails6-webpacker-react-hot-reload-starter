@@ -25,6 +25,28 @@ export const listProductVariants = gql`
   }
 `;
 
+export const listClients = gql`
+  query($page: Int, $limit: Int) {
+    clients(page: $page, limit: $limit)
+    {
+      id
+      firstName
+      lastName
+    }
+  }
+`;
+
+export const client = gql`
+  query($id: ID!) {
+    client(id: $id)
+    {
+      id
+      firstName
+      lastName
+    }
+  }
+`;
+
 export const listSettings = gql`
   query {
     settings
