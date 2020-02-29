@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   if Rails.env.development?
     mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
   end
-  root 'test#index'
-  get "/orders", to: "test#index"
-  get "/settings", to: "test#index"
+  root 'main#index'
+  get "/clients/(:a)", to: "main#index"
+  get "/orders", to: "main#index"
+  get "/settings", to: "main#index"
   post "/graphql", to: "graphql#execute"
 
   namespace :hooks do
