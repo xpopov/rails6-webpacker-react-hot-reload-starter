@@ -1,0 +1,15 @@
+development:
+    apiKey: 6a0b4815a92dc535e33784f7b74d7a5d
+    shopOrigin: abc-dev.myshopify.com
+    forceRedirect: false
+
+staging:
+    apiKey: 45346be93d01fd52d861627d3c57187f
+    shopOrigin: abc-home.myshopify.com
+    forceRedirect: false
+
+production:
+    apiKey: 45346be93d01fd52d861627d3c57187f
+    shopOrigin: abc-home.myshopify.com
+    forceRedirect: false
+    

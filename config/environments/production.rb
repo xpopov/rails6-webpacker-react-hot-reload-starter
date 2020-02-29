@@ -1,5 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  config.hosts = (config.hosts rescue []) << "1.2.3.4"
+  config.hosts << "localhost"
 
   # Code is not reloaded between requests.
   config.cache_classes = true
