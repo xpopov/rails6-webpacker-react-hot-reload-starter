@@ -18,15 +18,18 @@
 console.log('Hello World from Webpacker')
 
 // for development HMR
-import './styles/application.scss';
+import './styles.scss';
 
-import 'react-hot-loader'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from '../components/app'
+
 import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.bundle'
+// UMD?
+// import 'bootstrap/dist/js/bootstrap.bundle'
 import 'jquery/dist/jquery.slim'
+// import 'bootstrap'
+import '@shopify/polaris/styles.css'
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
@@ -34,3 +37,25 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#root')
   )
 })
+
+document.addEventListener("turbolinks:load", () => {
+  // Turbolinks.clearCache();
+  console.log("turbolinks: loading");
+
+  const element = document.getElementById('root');
+  // // if (element)
+  //   // element.parentNode.removeChild(element);
+  // while (element.firstChild) {
+  //   element.removeChild(element.firstChild);
+  // }
+  // ReactDOM.unmountComponentAtNode(element);
+
+  if (!ReactDOM.findDOMNode(element)) {
+    ReactDOM.render(
+      <App />,
+      element
+    )
+  }
+});
+
+// require("shopify_app")
