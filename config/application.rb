@@ -32,5 +32,7 @@ module Newapp
     end
 
     config.active_job.queue_adapter = :sidekiq
+
+    config.time_zone = File.read("/etc/timezone").chomp
   end
 end
