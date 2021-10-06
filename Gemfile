@@ -42,7 +42,7 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem 'sidekiq', '~> 6.0'
+gem 'sidekiq', '~> 6.2'
 gem "httparty", "~> 0.17.3"
 
 # Shopify App
