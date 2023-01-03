@@ -43,7 +43,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'sidekiq', '~> 6.0'
-gem "httparty", "~> 0.17.3"
+gem "httparty", "~> 0.21.0"
 
 # Shopify App
 gem 'shopify_app', '~> 11.4'
